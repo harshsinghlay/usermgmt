@@ -2,7 +2,7 @@ import React from "react";
 
 function User({ user = null }) {
   return (
-    <div className="w-full h-screen flex justify-center items-center mt-14 sm:mt-0 px-6">
+    <div className="w-full h-screen flex justify-center items-center mt-4 sm:mt-0 px-6">
       <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 ">
         {/* User Image Section */}
         <section className="w-48 sm:w-1/2">
