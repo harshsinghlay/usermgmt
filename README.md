@@ -64,7 +64,7 @@ The application is deployed and accessible at [https://usermgmt.vercel.app]. You
 
 ## Folder Structure
 
-- **api.js**: Contains all API-related functions such as `handleCreateUser`, `handleUpdateUser`, and `handleDeleteUser`.
+- **api.js**: Contains all API-related functions such as `createUser` , `fetchUsers` , `deleteUser` , `updateUser`.
 - **components**: Houses the modular components like `UserTable`, `UserForm`, etc.
 
 ## License
