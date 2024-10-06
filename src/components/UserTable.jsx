@@ -75,25 +75,27 @@ function UserTable({ onEdit, searchQuery }) {
                 <td className="border p-2 lg:p-4 hidden lg:table-cell">
                   {user.company?.name}
                 </td>
-                <td className="border p-2 lg:p-4 flex space-x-2 lg:space-x-3 text-base lg:text-xl">
-                  <button
-                    onClick={() => showUserDetails(user.id)}
-                    className="text-black"
-                  >
-                    <BsEye />
-                  </button>
-                  <button
-                    onClick={() => onEdit(user)}
-                    className="text-blue-600"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDeleteUser(user.id)}
-                    className="text-red-600"
-                  >
-                    <FaTrash />
-                  </button>
+                <td className="border p-2 lg:p-4 text-base lg:text-xl">
+                  <div className="flex justify-center items-center space-x-2 lg:space-x-3">
+                    <button
+                      onClick={() => showUserDetails(user.id)}
+                      className="text-black"
+                    >
+                      <BsEye />
+                    </button>
+                    <button
+                      onClick={() => onEdit(user)}
+                      className="text-blue-600"
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
+                      onClick={() => handleDeleteUser(user.id)}
+                      className="text-red-600"
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))
