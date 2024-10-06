@@ -23,7 +23,7 @@ const createUser = async (newUser) => {
       body: JSON.stringify(newUser),
     });
     if (!response.ok) throw new Error("Failed to create user");
-    const data = await response.json();
+    const data = await response.json();    
     return data;
   } catch (error) {
     throw error;

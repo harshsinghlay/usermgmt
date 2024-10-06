@@ -1,13 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserTable from "./UserTable";
-import { useUsers } from "../hooks/useUsers";
 import Form from "./Form";
+import { useDispatch } from "react-redux";
+import { setUsers } from "../redux/features/userSlice";
+import { fetchUsers } from "../api/api";
 
 function Home() {
-  const { loading, error } = useUsers();
+  const dispatch = useDispatch();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState(null);
+
+  const loadUsers = async () => {
+    setLoading(true);
+    setLoadingError(null);
+    try {
+      const data = await fetchUsers();
+      dispatch(setUsers(data || []));
+    } catch (err) {
+      setLoadingError("Failed to load users");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Initially load users from database
+  useEffect(() => {
+    loadUsers();
+  }, []);
 
   const openForm = (user = null) => {
     setCurrentUser(user);
@@ -51,7 +73,7 @@ function Home() {
             <div className="grid min-h-[100px] place-items-center rounded-lg p-6">
               <p>Loading...</p>
             </div>
-          ) : error ? (
+          ) : loadingError ? (
             <div className="text-red-500 text-center">
               <p>Failed to Fetch Users</p>
             </div>

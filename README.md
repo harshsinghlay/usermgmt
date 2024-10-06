@@ -1,7 +1,7 @@
 # UserManager WebApp
 
 ## Description
-**UserManager** is a responsive CRUD application designed to simplify user management. The app allows users to create, edit, update, and delete user information, while also providing filtering and searching capabilities for easy navigation. The project is built using **React** with **Tailwind CSS** for styling and jsonplaceholderapi for userdata. This app is fully responsive and offers a clean, user-friendly interface to streamline user management tasks.
+**UserManager** is a responsive CRUD application designed to simplify user management. The app allows users to create, edit, update, and delete user information, while also providing filtering and searching capabilities for easy navigation. The project is built using **React** with **Tailwind CSS** for styling , **jsonplaceholderapi** for dummyuserdata and **Redux** for state management. This app is fully responsive and offers a clean, user-friendly interface to streamline user management tasks.
 
 ## Deployed Application
 The application is deployed and accessible at [https://usermgmt.vercel.app]. You can explore all features directly through the live application without cloning the repository.
@@ -12,6 +12,7 @@ The application is deployed and accessible at [https://usermgmt.vercel.app]. You
 - **Tailwind CSS**: Utility-first CSS framework for responsive and customizable styling.
 - **React Hook Form**: Efficient form handling and validation.
 - **JSONPlaceholder API**: Mock API for handling user data.
+- **Redux** : State container for JavaScript apps.
 
 ## How to Run the Project
 
@@ -52,6 +53,7 @@ The application is deployed and accessible at [https://usermgmt.vercel.app]. You
 - **API Integration**: Uses JSONPlaceholder API for handling CRUD operations.
 - **Custom Hooks**: Code is modularized with custom hooks for managing API requests.
 - **Fully Responsive Design**: Provides optimal user experience across all devices.
+- **State Management with Redux**: Manage application state efficiently with Redux.
 
 ## How to Use
 

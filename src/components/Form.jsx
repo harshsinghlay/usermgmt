@@ -73,9 +73,9 @@ function Form({ isOpen, onClose, user }) {
     };
 
     if (user) {
-      await handleEditUser({ ...user, ...userData });
+       handleEditUser({ ...user, ...userData });
     } else {
-      await handleCreateUser(userData);
+       handleCreateUser(userData);
     }
     reset();
     onClose();
@@ -91,7 +91,7 @@ function Form({ isOpen, onClose, user }) {
             {user ? "Edit User" : "Create User"}{" "}
           </h2>
           <button onClick={onClose}>
-            <ImCross /> {/* Close modal button */}
+            <ImCross /> 
           </button>
         </div>
 
@@ -279,4 +279,4 @@ function Form({ isOpen, onClose, user }) {
   );
 }
 
-export default Form;
+export default React.memo(Form);

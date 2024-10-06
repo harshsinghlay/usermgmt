@@ -4,21 +4,23 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useUsers } from "../hooks/useUsers";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 function UserTable({ onEdit, searchQuery }) {
-  const { users: allUsers, removeUser } = useUsers();
-  const [filteredUsers, setFilteredUsers] = useState(allUsers || []);
+  const { removeUser } = useUsers();
+  const users = useSelector((state) => state.users);
+  const [filteredUsers, setFilteredUsers] = useState(users || []);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Filter users based on searchQuery
     const filtered = searchQuery
-      ? allUsers.filter((user) =>
+      ? users.filter((user) =>
           user.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
-      : allUsers;
+      : users;
     setFilteredUsers(filtered);
-  }, [searchQuery, allUsers]);
+  }, [searchQuery, users]);
 
   // Navigate to user details page
   const showUserDetails = (id) => {
@@ -27,11 +29,16 @@ function UserTable({ onEdit, searchQuery }) {
 
   // Delete user handler
   const handleDeleteUser = async (userId) => {
-    const status = await removeUser(userId);
-    if (status) {
-      toast.success("User Deleted Successfully");
-    } else {
-      toast.error("Failed to Delete User");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this user?"
+    );
+    if (confirmDelete) {
+      const status = await removeUser(userId);
+      if (status) {
+        toast.success("User Deleted Successfully");
+      } else {
+        toast.error("Failed to Delete User");
+      }
     }
   };
 
@@ -103,4 +110,4 @@ function UserTable({ onEdit, searchQuery }) {
   );
 }
 
-export default UserTable;
+export default React.memo(UserTable);

@@ -53,4 +53,4 @@ function User({ user = null }) {
   );
 }
 
-export default User;
+export default React.memo(User);
